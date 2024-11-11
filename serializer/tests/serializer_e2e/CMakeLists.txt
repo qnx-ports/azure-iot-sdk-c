@@ -75,7 +75,10 @@ else()
 				aziotsharedutil
 				iothub_client_http_transport
 			)
-		target_link_libraries(${theseTestsName}_exe pthread)
+		if (NOT QNX)
+			# pthread is a part of libc on QNX
+			target_link_libraries(${theseTestsName}_exe pthread)
+		endif()
 		linkSharedUtil(${theseTestsName}_exe)
 		linkUAMQP(${theseTestsName}_exe)
 		linkHttp(${theseTestsName}_exe)

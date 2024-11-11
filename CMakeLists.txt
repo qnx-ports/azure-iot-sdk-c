@@ -34,6 +34,8 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 elseif (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     set(MACOSX TRUE)
     add_definitions(-DMACOSX)
+elseif (CMAKE_SYSTEM_NAME STREQUAL "QNX")
+    set(QNX TRUE)
 endif()
 
 IF(WIN32)
